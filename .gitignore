@@ -1,0 +1,20 @@
+# Personal/internal documentation
+/internal_docs/
+
+# .NET build output
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+
+# Angular / Node.js
+**/node_modules/
+**/dist/
+**/.angular/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+**/appsett
