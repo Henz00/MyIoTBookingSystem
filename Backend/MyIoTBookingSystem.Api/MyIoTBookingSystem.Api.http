@@ -1,0 +1,6 @@
+@MyIoTBookingSystem.Api_HostAddress = http://localhost:5224
+
+GET {{MyIoTBookingSystem.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
