@@ -4,6 +4,6 @@
     {
         public int HomeImageId { get; set; }
         public int HomeId { get; set; }
-        public string URL { get; set; } = string.Empty;
+        public string Url { get; set; } = string.Empty;
     }
 }

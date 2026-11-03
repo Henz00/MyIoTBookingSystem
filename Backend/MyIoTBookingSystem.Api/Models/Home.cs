@@ -11,7 +11,7 @@
         public string StreetNumber { get; set; } = string.Empty;
         public int DepartmentId { get; set; }
         public Department Department { get; set; } = null!;
-        public decimal DailyPrice { get; set; }
+        public decimal? DailyPrice { get; set; }
         public bool IsPublished { get; set; }
         public bool IsBookable { get; set; }
         public int RoomCount { get; set; }

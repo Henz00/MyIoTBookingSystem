@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MyIoTBookingSystem.Api.Data;
 using MyIoTBookingSystem.Api.Models;
 using MyIoTBookingSystem.Api.Services;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+});
+
 builder.Services.AddScoped<RoleInitializationService>();
 
 builder.Services.AddControllers();
@@ -39,6 +45,7 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
