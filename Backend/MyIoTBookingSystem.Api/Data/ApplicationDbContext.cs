@@ -8,6 +8,7 @@ namespace MyIoTBookingSystem.Api.Data
     {
         public DbSet<Department> Departments { get; set; }
         public DbSet<Home> Homes { get; set; }
+        public DbSet<HomeImage> HomeImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -50,8 +51,6 @@ namespace MyIoTBookingSystem.Api.Data
                 .Property(user => user.FullName)
                 .HasMaxLength(150);
 
-            //
-
             // Foreign key setup
             modelBuilder.Entity<Home>()
                 .HasOne(home => home.Department)
@@ -61,7 +60,8 @@ namespace MyIoTBookingSystem.Api.Data
             modelBuilder.Entity<Home>()
                 .HasMany(home => home.Images)
                 .WithOne()
-                .HasForeignKey(image => image.HomeId);
+                .HasForeignKey(image => image.HomeId)
+                .OnDelete(DeleteBehavior.Cascade);
      
         }
     }

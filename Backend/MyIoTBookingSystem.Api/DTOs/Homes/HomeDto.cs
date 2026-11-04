@@ -4,6 +4,7 @@ namespace MyIoTBookingSystem.Api.DTOs.Homes
 {
     public class HomeDto
     {
+        public int HomeId { get; set; }
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
         public string ZipNumber { get; set; } = string.Empty;
@@ -13,6 +14,8 @@ namespace MyIoTBookingSystem.Api.DTOs.Homes
         public string DepartmentName { get; set; } = string.Empty;
         public int DepartmentId { get; set; }
         public decimal? DailyPrice { get; set; }
+        public bool IsBookable { get; set; }
+        public bool IsPublished { get; set; }
         public int RoomCount { get; set; }
         public int AreaSquareMeters { get; set; }
         public ICollection<HomeImageDto> Images { get; set; } = new List<HomeImageDto>();

@@ -259,7 +259,7 @@ namespace MyIoTBookingSystem.Api.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<decimal>("DailyPrice")
+                    b.Property<decimal?>("DailyPrice")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
@@ -317,7 +317,7 @@ namespace MyIoTBookingSystem.Api.Migrations
                     b.Property<int>("HomeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("URL")
+                    b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

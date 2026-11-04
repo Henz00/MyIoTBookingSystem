@@ -1,21 +1,39 @@
 ﻿using MyIoTBookingSystem.Api.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyIoTBookingSystem.Api.DTOs.Homes
 {
     public class UpdateHomeDto
     {
-        public string Name { get; set; } = string.Empty;
+        [Required, MaxLength(150)]
+        public required string Name { get; set; }
+
+        [MaxLength(1500)]
         public string? Description { get; set; }
-        public string ZipNumber { get; set; } = string.Empty;
-        public string City { get; set; } = string.Empty;
-        public string StreetName { get; set; } = string.Empty;
-        public string StreetNumber { get; set; } = string.Empty;
+
+        [Required, MaxLength(10)]
+        public required string ZipNumber { get; set; }
+        
+        [Required, MaxLength(100)]
+        public required string City { get; set; }
+
+        [Required, MaxLength(150)]
+        public required string StreetName { get; set; }
+        
+        [Required, MaxLength(16)]
+        public required string StreetNumber { get; set; }
+
+        [Range(1, int.MaxValue)]
         public int DepartmentId { get; set; }
-        public decimal DailyPrice { get; set; }
-        public bool IsPublished { get; set; }
-        public bool IsBookable { get; set; }
+
+        [Range(typeof(decimal), "0.01", "999999999")]
+        public decimal? DailyPrice { get; set; }
+
+
+        [Range(1, int.MaxValue)]
         public int RoomCount { get; set; }
+
+        [Range(1, int.MaxValue)]
         public int AreaSquareMeters { get; set; }
-        public ICollection<HomeImage> Images { get; set; } = new List<HomeImage>();
     }
 }
