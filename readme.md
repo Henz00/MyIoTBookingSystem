@@ -26,10 +26,10 @@ Development is currently focused on establishing the backend foundation and impl
 - Home management, including CRUD operations and publishing/bookability controls.
 - DTO-based API responses and input validation.
 - Image upload processing using SkiaSharp, including format validation, dimension limits and re-encoding.
-- Local image storage with references stored in the database.
+- Local image storage.
 
 ### In development
-
+- Image storage references stored in the database.
 - Home image management endpoints.
 - Further backend functionality and domain logic.
 
