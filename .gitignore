@@ -21,3 +21,6 @@
 
 # image files from user uploads
 /Backend/MyIoTBookingSystem.Api/uploads/
+
+# personal notes
+notes.txt

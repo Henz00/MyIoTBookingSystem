@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyIoTBookingSystem.Api.Data;
+using MyIoTBookingSystem.Api.Interfaces;
 using MyIoTBookingSystem.Api.Models;
 using MyIoTBookingSystem.Api.Services;
 using Scalar.AspNetCore;
@@ -29,6 +30,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddScoped<RoleInitializationService>();
+builder.Services.AddScoped<IImageStorageService, ImageStorageService>();
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();

@@ -325,7 +325,7 @@ namespace MyIoTBookingSystem.Api.Migrations
 
                     b.HasIndex("HomeId");
 
-                    b.ToTable("HomeImage");
+                    b.ToTable("HomeImages");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -7,7 +7,6 @@ using MyIoTBookingSystem.Api.DTOs.Homes;
 
 namespace MyIoTBookingSystem.Api.Controllers
 {
-    // best practice here, have both attributes in one square bracket, or one attribute for each square bracket?
     [ApiController, Route("api/[controller]")]
     public class HomesController(ApplicationDbContext context) : ControllerBase
     {
@@ -26,7 +25,7 @@ namespace MyIoTBookingSystem.Api.Controllers
                     DepartmentName = home.Department.Name,
                     DepartmentId = home.Department.DepartmentId,
                     Description = home.Description,
-                    Images = home.Images.Select(image => new HomeImageDto { Url = image.Url }).ToList(),
+                    Images = home.Images.Select(image => new HomeImageDto { HomeImageId = image.HomeImageId, Url = image.Url }).ToList(),
                     RoomCount = home.RoomCount,
                     StreetName = home.StreetName,
                     StreetNumber = home.StreetNumber,
@@ -57,7 +56,7 @@ namespace MyIoTBookingSystem.Api.Controllers
                     DepartmentId = home.Department.DepartmentId,
                     Description = home.Description,
                     Images = home.Images
-                        .Select(image => new HomeImageDto { Url = image.Url })
+                        .Select(image => new HomeImageDto { HomeImageId = image.HomeImageId, Url = image.Url })
                         .ToList(),
                     RoomCount = home.RoomCount,
                     StreetName = home.StreetName,
@@ -116,8 +115,7 @@ namespace MyIoTBookingSystem.Api.Controllers
                 ZipNumber = home.ZipNumber
             };
 
-            // update to point at administrator version of GetHomeById
-            return CreatedAtAction(nameof(GetHomeById),
+            return CreatedAtAction(nameof(AdminGetHomes),
                 new { id = home.HomeId },
                 homeData
             );
@@ -168,6 +166,7 @@ namespace MyIoTBookingSystem.Api.Controllers
                 Images = home.Images
                     .Select(image => new HomeImageDto
                     {
+                        HomeImageId = image.HomeImageId,
                         Url = image.Url
                     })
                     .ToList(),
@@ -208,7 +207,12 @@ namespace MyIoTBookingSystem.Api.Controllers
                     DepartmentName = home.Department.Name,
                     DepartmentId = home.Department.DepartmentId,
                     Description = home.Description,
-                    Images = home.Images.Select(image => new HomeImageDto { Url = image.Url }).ToList(),
+                    Images = home.Images.Select(image => new HomeImageDto 
+                    { 
+                        HomeImageId = image.HomeImageId,
+                        Url = image.Url
+                    })
+                    .ToList(),
                     RoomCount = home.RoomCount,
                     StreetName = home.StreetName,
                     StreetNumber = home.StreetNumber,

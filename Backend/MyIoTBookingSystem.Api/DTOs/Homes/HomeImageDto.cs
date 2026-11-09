@@ -2,7 +2,7 @@
 {
     public class HomeImageDto
     {
-        public string HomeImageId { get; set; } = string.Empty;
+        public int HomeImageId { get; set; }
         public string Url { get; set; } = string.Empty;
     }
 }
