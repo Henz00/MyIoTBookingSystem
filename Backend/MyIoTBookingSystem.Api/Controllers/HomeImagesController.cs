@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyIoTBookingSystem.Api.Data;
-using MyIoTBookingSystem.Api.DTOs.Homes;
+using MyIoTBookingSystem.Api.DTOs.Responses.Homes;
 using MyIoTBookingSystem.Api.Interfaces;
 using MyIoTBookingSystem.Api.Models;
 using System.Reflection.Metadata.Ecma335;

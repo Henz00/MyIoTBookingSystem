@@ -281,6 +281,9 @@ namespace MyIoTBookingSystem.Api.Migrations
                     b.Property<int>("HomeId")
                         .HasColumnType("int");
 
+                    b.Property<int>("PaymentArrangement")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
