@@ -8,6 +8,11 @@ namespace MyIoTBookingSystem.Api.Services
         private const long maxFileSize = 5 * 1024 * 1024;
         private string imageDirectory = Path.Combine(environment.WebRootPath, "uploads", "homes");
 
+
+        /// <summary>
+        /// Saves an image to a local directory
+        /// </summary>
+        /// <returns>Url reference to the image</returns>
         public string SaveImage(IFormFile image)
         {
             if (image.Length == 0)
