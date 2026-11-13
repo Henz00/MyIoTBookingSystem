@@ -1,6 +1,6 @@
 ﻿using MyIoTBookingSystem.Api.Models;
 
-namespace MyIoTBookingSystem.Api.DTOs.Homes
+namespace MyIoTBookingSystem.Api.DTOs.Responses.Homes
 {
     public class HomeDto
     {

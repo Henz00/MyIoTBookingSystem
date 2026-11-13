@@ -18,6 +18,7 @@ namespace MyIoTBookingSystem.Api.Models
         public string? CustomerPhone { get; set; }
         public decimal AgreedDailyPrice { get; set; }
         public decimal TotalPrice { get; set; }
+        public BookingPaymentArrangement PaymentArrangement { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
         public required string CreatedByUserId { get; set; }
         public ApplicationUser CreatedByUser { get; set; } = null!;

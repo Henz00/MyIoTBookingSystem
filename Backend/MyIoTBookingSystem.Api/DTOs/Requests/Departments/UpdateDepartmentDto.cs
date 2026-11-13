@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MyIoTBookingSystem.Api.DTOs.Departments
+namespace MyIoTBookingSystem.Api.DTOs.Requests.Departments
 {
     public class UpdateDepartmentDto
     {

@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyIoTBookingSystem.Api.Data;
-using MyIoTBookingSystem.Api.DTOs.Auth;
+using MyIoTBookingSystem.Api.DTOs.Requests.Auth;
+using MyIoTBookingSystem.Api.DTOs.Responses.Auth;
 using MyIoTBookingSystem.Api.Models;
 using System.Security.Claims;
 

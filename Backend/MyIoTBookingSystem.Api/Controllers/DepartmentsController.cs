@@ -2,8 +2,9 @@
 using MyIoTBookingSystem.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using MyIoTBookingSystem.Api.Models;
-using MyIoTBookingSystem.Api.DTOs.Departments;
 using Microsoft.AspNetCore.Authorization;
+using MyIoTBookingSystem.Api.DTOs.Responses.Departments;
+using MyIoTBookingSystem.Api.DTOs.Requests.Departments;
 
 namespace MyIoTBookingSystem.Api.Controllers
 {

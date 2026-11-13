@@ -1,4 +1,4 @@
-﻿namespace MyIoTBookingSystem.Api.DTOs.Departments
+﻿namespace MyIoTBookingSystem.Api.DTOs.Responses.Departments
 {
     public class DepartmentDto
     {

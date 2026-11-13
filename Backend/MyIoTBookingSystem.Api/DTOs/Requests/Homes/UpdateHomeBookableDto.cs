@@ -1,4 +1,4 @@
-﻿namespace MyIoTBookingSystem.Api.DTOs.Homes
+﻿namespace MyIoTBookingSystem.Api.DTOs.Requests.Homes
 {
     public class UpdateHomeBookableDto
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MyIoTBookingSystem.Api.DTOs.Auth
+namespace MyIoTBookingSystem.Api.DTOs.Requests.Auth
 {
     public class RegisterDto
     {

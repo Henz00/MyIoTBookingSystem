@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using MyIoTBookingSystem.Api.Data;
 using MyIoTBookingSystem.Api.Models;
 using Microsoft.EntityFrameworkCore;
-using MyIoTBookingSystem.Api.DTOs.Homes;
+using MyIoTBookingSystem.Api.DTOs.Responses.Homes;
+using MyIoTBookingSystem.Api.DTOs.Requests.Homes;
 
 namespace MyIoTBookingSystem.Api.Controllers
 {
