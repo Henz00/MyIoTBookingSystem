@@ -1,21 +1,58 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MyIoTBookingSystem.Api.Data;
+using MyIoTBookingSystem.Api.DTOs.Requests.Bookings;
+using MyIoTBookingSystem.Api.DTOs.Responses.Bookings;
+using MyIoTBookingSystem.Api.Interfaces;
+using MyIoTBookingSystem.Api.Models;
 
 namespace MyIoTBookingSystem.Api.Controllers
 {
-    public class BookingController : ControllerBase
+    [ApiController, Route("api/bookings")]
+    public class BookingController(ApplicationDbContext context, IBookingService bookingService, ILogger<BookingController> logger) : ControllerBase
     {
-        public async Task<IActionResult> MethodName()
+        [HttpGet, Authorize]
+        public async Task<IActionResult> GetBooking(int id)
         {
-            DateOnly arrivalDate_booking1 = new DateOnly(2026, 11, 13);
-            DateOnly departureDate_booking1 = new DateOnly(2026, 11, 15);
+            Booking? booking = await context.Bookings.FindAsync(id);
 
-            DateOnly arrivalDate_booking2 = new DateOnly(2026, 11, 15);
-            DateOnly departureDate_booking2 = new DateOnly(2026, 11, 17);
+            if(booking is null)
+                return NotFound();
 
-            bool overlaps = arrivalDate_booking2 <= departureDate_booking1 && 
-                            departureDate_booking2 >= arrivalDate_booking1;
+            return Ok(new BookingDto 
+                {
+                    BookingId = booking.BookingId,
+                    HomeName = booking.Home.Name,
+                    CustomerName = booking.CustomerName,
+                    CustomerEmail = booking.CustomerEmail,
+                    CustomerPhone = booking.CustomerPhone,
+                    AgreedDailyPrice = booking.AgreedDailyPrice,
+                    TotalPrice = booking.TotalPrice,
+                    ArrivalDate = booking.ArrivalDate,
+                    DepartureDate = booking.DepartureDate,
+                    PaymentArrangement = booking.PaymentArrangement,
+                    Status = booking.Status,
+                    CancellationReason = booking.CancellationReason,
+                    CancelledAt = booking.CancelledAt,
+                    CreatedAt = booking.CreatedAt
+                });
+        }
 
-            return Ok();
+        [HttpPost, Authorize]
+        public async Task<IActionResult> CreateBooking(string customerId, CreateCustomerBookingDto dto)
+        {
+            BookingDto booking;
+            try
+            {
+                booking = await bookingService.CreateCustomerBookingAsync(customerId, dto);
+            }
+            catch(Exception exception)
+            {
+                logger.LogError(exception, "Failed to create booking for customer {customerId}.", customerId);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+
+            return Ok(booking);
         }
     }
 }

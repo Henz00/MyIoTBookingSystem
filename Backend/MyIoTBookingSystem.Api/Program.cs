@@ -31,6 +31,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddScoped<RoleInitializationService>();
 builder.Services.AddScoped<IImageStorageService, ImageStorageService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
